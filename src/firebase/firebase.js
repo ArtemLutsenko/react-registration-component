@@ -1,7 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-import {toastr} from 'react-redux-toastr'
 
 const config = {
   apiKey: "AIzaSyDNezxRhlevNVuOgu5psYpD_KpfPxu8GDc",
@@ -34,10 +33,8 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         createdAt,
         ...additionalData
       });
-      toastr.success('Log in', `You login as a ${displayName}`)
     } catch (error) {
       console.log(error, "error creating user");
-      toastr.error("error", error)
     }
   }
   return userRef;
